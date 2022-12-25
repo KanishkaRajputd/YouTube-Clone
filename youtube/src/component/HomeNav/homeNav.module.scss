@@ -1,0 +1,14 @@
+.root {
+  height: 40px;
+  display: flex;
+  gap: 16px;
+}
+.root > div {
+  background-color: #272727;
+  padding: 10px;
+  border-radius: 8px;
+  .selected {
+    color: black;
+    background-color: white;
+  }
+}

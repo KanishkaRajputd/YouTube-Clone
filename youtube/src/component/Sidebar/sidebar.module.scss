@@ -1,0 +1,28 @@
+.root {
+  display: grid;
+  grid-template-rows: repeat(4, 60px);
+  gap: 20px;
+  padding: 10px;
+  margin-left: 5px;
+}
+
+.root > div {
+  text-align: center;
+  font-size: 12px;
+}
+
+.root_true {
+  display: grid;
+  grid-template-rows: repeat(13, 40px);
+  gap: 5px;
+  margin-left: 20px;
+  border-bottom: 1px solid grey;
+  padding: 10px;
+  .border {
+    border-bottom: 1px solid grey;
+  }
+}
+.root_true > div {
+  display: flex;
+  gap: 36px;
+}
