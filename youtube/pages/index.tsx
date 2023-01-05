@@ -7,8 +7,6 @@ import { useSelector } from "react-redux";
 type DataType = { contentData: any };
 
 export default function Home({ contentData }: DataType) {
-  console.log(contentData);
-
   return (
     <div>
       <Navbar />

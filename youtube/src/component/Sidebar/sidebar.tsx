@@ -5,10 +5,6 @@ import useWindowSize from "../../../hooks/useWindowSize";
 import { SearchInputAction } from "../Search/store/action";
 import s from "./sidebar.module.scss";
 
-type sizetypes = {
-  width: number;
-  height: number;
-};
 type DataTypes = {
   imgLink: string;
   name: string;
@@ -109,7 +105,8 @@ export const Sidebar = () => {
           ))}
         </div>
       ) : (
-        size?.width > 300 &&
+        size?.width &&
+        301 > 300 &&
         !router?.query?.id && (
           <div className={s.root_true}>
             {data?.map((item, index) => {

@@ -7,9 +7,21 @@ import HomeNav from "../HomeNav";
 import Sidebar from "../Sidebar";
 import s from "./searchContent.module.scss";
 
+type videoTypes = {
+  snippet: {
+    title: string;
+    channelTitle: string;
+    publishedAt: Date;
+    description: string;
+  };
+  id: {
+    videoId: string;
+  };
+};
+
 export const SearchContent = ({ data }: any) => {
-  const [video, setVideo] = useState();
-  const [moreData, setMoreData] = useState([]);
+  const [video, setVideo] = useState<videoTypes>();
+  const [moreData, setMoreData] = useState<videoTypes[]>([]);
 
   const dispatch = useDispatch();
   const router = useRouter();

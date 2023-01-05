@@ -32,26 +32,29 @@ export const HomeNav = () => {
 
   return (
     <div className={s.root}>
-      {size?.width > 1010 &&
-        suggetions?.map((item) => (
-          <div key={item?.id} onClick={() => handleClick(item)}>
-            {item?.name}
-          </div>
-        ))}
-      {size?.width > 790 &&
-        size?.width < 1011 &&
-        suggetions?.slice(0, 7).map((item) => (
-          <div key={item?.id} onClick={() => handleClick(item)}>
-            {item?.name}
-          </div>
-        ))}
-      {size?.width > 20 &&
-        size?.width < 791 &&
-        suggetions?.slice(0, 1).map((item) => (
-          <div key={item?.id} onClick={() => handleClick(item)}>
-            {item?.name}
-          </div>
-        ))}
+      {size?.width ||
+        (0 > 1010 &&
+          suggetions?.map((item) => (
+            <div key={item?.id} onClick={() => handleClick(item)}>
+              {item?.name}
+            </div>
+          )))}
+      {size?.width ||
+        (0 > 790 && size?.width) ||
+        (0 < 1011 &&
+          suggetions?.slice(0, 7).map((item) => (
+            <div key={item?.id} onClick={() => handleClick(item)}>
+              {item?.name}
+            </div>
+          )))}
+      {size?.width ||
+        (0 > 20 && size?.width) ||
+        (0 < 791 &&
+          suggetions?.slice(0, 1).map((item) => (
+            <div key={item?.id} onClick={() => handleClick(item)}>
+              {item?.name}
+            </div>
+          )))}
     </div>
   );
 };
