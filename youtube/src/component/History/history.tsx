@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import { useRouter } from "next/router";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -31,9 +30,6 @@ export const History = () => {
               <p>{item?.snippet?.title}</p>
               <p style={{ color: "grey", marginTop: "10px" }}>
                 {item?.snippet?.channelTitle}
-              </p>
-              <p style={{ color: "grey", marginTop: "5px", fontSize: "12px" }}>
-                {dayjs(item?.snippet?.publishedAt).format(" MMM DD, YYYY")}
               </p>
             </div>
           </div>
