@@ -1,4 +1,4 @@
-import { SEARCHED_HISTORY, SEARCHED_INPUT } from "./type";
+import { SEARCHED_INPUT } from "./type";
 
 type data = {
   type: string;
@@ -11,23 +11,9 @@ type InputType = {
 const initial = {
   searchedHistory: [],
 };
-const initial1 = {
-  searchInput: "s",
-};
 
-export const SearchHistoryReducer = (
-  store = initial,
-  { type, payload }: data
-) => {
-  switch (type) {
-    case SEARCHED_HISTORY:
-      return { ...store, showSidebar: [...store?.searchedHistory, payload] };
-    default:
-      return store;
-  }
-};
 export const SearchInputReducer = (
-  store = initial1,
+  store = initial,
   { type, payload }: InputType
 ) => {
   switch (type) {

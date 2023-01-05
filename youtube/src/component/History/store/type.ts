@@ -1,0 +1,1 @@
+export const VIDEO_HISTORY = "VIDEO_HISTORY";

@@ -4,20 +4,33 @@
   gap: 20px;
   padding: 10px;
   margin-left: 5px;
+
+  @media (min-width: 300px) and (max-width: 551px) {
+    padding: 0px;
+    margin-top: 25px;
+    margin-left: 0px;
+  }
 }
 
 .root > div {
   text-align: center;
   font-size: 12px;
+  cursor: pointer;
 }
 
 .root_true {
+  cursor: pointer;
   display: grid;
   grid-template-rows: repeat(13, 40px);
   gap: 5px;
   margin-left: 20px;
   border-bottom: 1px solid grey;
   padding: 10px;
+  @media (min-width: 300px) and (max-width: 551px) {
+    margin-left: 0px;
+    gap: 2px;
+  }
+
   .border {
     border-bottom: 1px solid grey;
   }
@@ -25,4 +38,7 @@
 .root_true > div {
   display: flex;
   gap: 36px;
+  @media (min-width: 300px) and (max-width: 551px) {
+    gap: 5px;
+  }
 }

@@ -1,6 +1,52 @@
 .root {
-  border: 1px solid red;
-  margin-top: 10px;
-  flex: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  grid-template-columns: repeat(4, 180px);
+  grid-template-rows: repeat(30, 280px);
+  justify-content: space-around;
+
+  @media (min-width: 0px) and (max-width: 414px) {
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(7, 280px);
+    border-radius: 20px;
+    justify-content: space-between;
+    border-radius: 20px;
+  }
+
+  @media (min-width: 725px) and (max-width: 895px) {
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(7, 280px);
+    border-radius: 20px;
+    justify-content: space-between;
+    border-radius: 20px;
+  }
+  @media (min-width: 415px) and (max-width: 725px) {
+    grid-template-columns: repeat(2, 49%);
+    grid-template-rows: repeat(7, 280px);
+    border-radius: 20px;
+    justify-content: space-between;
+    border-radius: 20px;
+  }
+  @media (min-width: 895px) {
+    grid-template-columns: repeat(4, 24%);
+    grid-template-rows: repeat(7, 280px);
+    border-radius: 20px;
+    justify-content: space-between;
+    border-radius: 20px;
+  }
+  .card {
+    cursor: pointer;
+    .text > :nth-child(2) {
+      margin-top: 5px;
+      color: #979797;
+      font-size: 13px;
+    }
+    .text > :nth-child(1) {
+      margin-top: 8px;
+
+      font-size: 15px;
+    }
+  }
+  .card > :nth-child(1) {
+    height: 180px;
+  }
 }

@@ -1,8 +1,14 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import useWindowSize from "../../../hooks/useWindowSize";
 import { SearchInputAction } from "../Search/store/action";
 import s from "./sidebar.module.scss";
 
+type sizetypes = {
+  width: number;
+  height: number;
+};
 type DataTypes = {
   imgLink: string;
   name: string;
@@ -10,16 +16,18 @@ type DataTypes = {
 };
 
 export const Sidebar = () => {
+  const router = useRouter();
+  const size = useWindowSize();
   const data = [
     {
       imgLink: "/home.png",
       name: "Home",
-      redirectionPage: "a",
+      redirectionPage: "",
     },
     {
       imgLink: "/shorts.png",
       name: "Shorts",
-      redirectionPage: "shorts",
+      redirectionPage: "shorts videos",
     },
     {
       imgLink: "/subscription.png",
@@ -34,42 +42,42 @@ export const Sidebar = () => {
     {
       imgLink: "/historyIcon.png",
       name: "History",
-      redirectionPage: "a",
+      redirectionPage: "history",
     },
     {
       imgLink: "/tranding.png",
       name: "Tranding",
-      redirectionPage: "a",
+      redirectionPage: "tranding",
     },
     {
       imgLink: "/music.png",
       name: "Music",
-      redirectionPage: "a",
+      redirectionPage: "music",
     },
     {
       imgLink: "/newsIcon.png",
       name: "News",
-      redirectionPage: "a",
+      redirectionPage: "news",
     },
     {
       imgLink: "/game.png",
       name: "Game",
-      redirectionPage: "a",
+      redirectionPage: "game",
     },
     {
       imgLink: "/sports.png",
       name: "Sports",
-      redirectionPage: "a",
+      redirectionPage: "sports",
     },
     {
       imgLink: "/learning.png",
       name: "Learning",
-      redirectionPage: "a",
+      redirectionPage: "learning",
     },
     {
       imgLink: "/fashion.png",
       name: "Fashion & Beauty",
-      redirectionPage: "a",
+      redirectionPage: "fashion",
     },
   ];
   const dispatch = useDispatch();
@@ -78,7 +86,12 @@ export const Sidebar = () => {
   );
   const handleClick = (item: DataTypes) => {
     dispatch(SearchInputAction(item?.redirectionPage));
+    router.push({
+      pathname: "/search",
+      query: { input: item?.redirectionPage },
+    });
   };
+
   return (
     <div>
       {showSidebar ? (
@@ -96,26 +109,31 @@ export const Sidebar = () => {
           ))}
         </div>
       ) : (
-        <div className={s.root_true}>
-          {data?.map((item, index) => {
-            index = index + 1;
-            return (
-              <>
-                <div
-                  key={index}
-                  className={index === 4 ? s.border : ""}
-                  onClick={() => {
-                    handleClick(item);
-                  }}
-                >
-                  <img src={item?.imgLink} style={{ height: "30px" }} />
-                  <div style={{ marginTop: "6px" }}>{item?.name}</div>
-                </div>
-                {index === 4 && <div style={{ marginTop: "5px" }}>Explore</div>}
-              </>
-            );
-          })}
-        </div>
+        size?.width > 300 &&
+        !router?.query?.id && (
+          <div className={s.root_true}>
+            {data?.map((item, index) => {
+              index = index + 1;
+              return (
+                <>
+                  <div
+                    key={index}
+                    className={index === 4 ? s.border : ""}
+                    onClick={() => {
+                      handleClick(item);
+                    }}
+                  >
+                    <img src={item?.imgLink} style={{ height: "30px" }} />
+                    <div style={{ marginTop: "6px" }}>{item?.name}</div>
+                  </div>
+                  {index === 4 && (
+                    <div style={{ marginTop: "5px" }}>Explore</div>
+                  )}
+                </>
+              );
+            })}
+          </div>
+        )
       )}
     </div>
   );

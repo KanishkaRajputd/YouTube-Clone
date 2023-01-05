@@ -4,14 +4,17 @@ import HomeNav from "../HomeNav";
 import Sidebar from "../Sidebar";
 import s from "./home.module.scss";
 
-export const HomeComponent = () => {
+type DataType = {
+  data: any[];
+};
+
+export const HomeComponent = ({ data }: DataType) => {
   return (
     <div className={s.root}>
       <Sidebar />
-
       <div className={s.content}>
         <HomeNav />
-        <Content />
+        <Content data={data} />
       </div>
     </div>
   );

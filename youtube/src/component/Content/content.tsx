@@ -1,31 +1,39 @@
+import Image from "next/image";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { HistoryAction } from "../History/store/action";
 import s from "./content.module.scss";
 
-export const Content = () => {
-  const [data, setData] = useState<any[]>();
+type DataType = {
+  data: any[];
+};
+export const Content = ({ data }: DataType) => {
   const input = useSelector((store: any) => store?.searchInput?.searchInput);
+  const router = useRouter();
+  const dispatch = useDispatch();
 
-  const getData = async () => {
-    const key = "AIzaSyCbnJm23l_LXdtjxkGxdl3xuQFh9nmG_Y8";
-    const contentData = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${key}&q=${input}&type=videos&part=snippet&maxResults=30`
-    );
-    let Data = await contentData.json();
-    if (Data) {
-      console.log(Data?.items);
-      setData(Data?.items);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, [input]);
   return (
     <div className={s.root}>
       {data?.map((item) => (
-        <div className={s.card} key={item?.id}>
-          <div>{item?.snippet?.thumbnails?.high?.url}</div>
+        <div
+          className={s.card}
+          key={item?.id}
+          onClick={() => {
+            router.push({ ...router, pathname: `search/${item?.id?.videoId}` });
+            dispatch(HistoryAction(item));
+          }}
+        >
+          <div>
+            <img
+              src={item?.snippet?.thumbnails?.high?.url}
+              style={{ height: "100%", width: "100%" }}
+            />
+          </div>
+          <div className={s.text}>
+            <p>{item?.snippet?.title}</p>
+            <p>{item?.snippet?.channelTitle}</p>
+          </div>
         </div>
       ))}
     </div>

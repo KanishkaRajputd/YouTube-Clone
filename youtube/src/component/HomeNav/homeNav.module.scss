@@ -3,7 +3,9 @@
   display: flex;
   gap: 16px;
 }
+
 .root > div {
+  cursor: pointer;
   background-color: #272727;
   padding: 10px;
   border-radius: 8px;

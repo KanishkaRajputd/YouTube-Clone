@@ -3,7 +3,30 @@
   font-family: "Gill Sans", sans-serif;
   display: grid;
   padding: 5px 26px;
-  grid-template-columns: 5% 2.5% 15% 50% 10% 5% 6%;
+  cursor: pointer;
+  grid-template-columns: 5% 3% 15% 50% 10% 5% 8%;
+
+  @media (min-width: 810px) and (max-width: 976px) {
+    grid-template-columns: 5% 5% 10% 50% 5% 5% 10%;
+  }
+  @media (min-width: 550px) and (max-width: 811px) {
+    grid-template-columns: 6% 6% 15% 50% 5% 5% 15.5%;
+  }
+
+  @media (min-width: 300px) and (max-width: 551px) {
+    grid-template-columns: 8% 10% 22% 35% 3% 1% 20%;
+
+    padding: 0px;
+  }
+
+  @media (min-width: 1586px) and (max-width: 976px) {
+    grid-template-columns: 5% 5% 10% 50% 5% 5% 7%;
+  }
+
+  @media (min-width: 1586px) {
+    grid-template-columns: 5% 3% 15% 50% 10% 5% 5%;
+  }
+
   .searchbar {
     padding: 5px;
     .search {
@@ -16,7 +39,6 @@
     }
   }
   .signin {
-    border: 1px solid grey;
     margin: 10px 0px;
     padding: 4px 5px;
     display: flex;
