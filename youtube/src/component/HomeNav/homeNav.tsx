@@ -48,7 +48,7 @@ export const HomeNav = () => {
           ))}
         {size.width > 20 &&
           size.width < 791 &&
-          suggetions?.slice(0, 4).map((item) => (
+          suggetions?.slice(0, 2).map((item) => (
             <div key={item?.id} onClick={() => handleClick(item)}>
               {item?.name}
             </div>

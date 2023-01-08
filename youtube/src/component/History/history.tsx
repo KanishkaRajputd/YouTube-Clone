@@ -1,11 +1,12 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Sidebar from "../Sidebar";
 import s from "./history.module.scss";
 
 export const History = () => {
   const history = useSelector((store: any) => store?.history?.history);
+  useEffect(() => {}, []);
   const router = useRouter();
   return (
     <div className={s.root}>
