@@ -3,7 +3,7 @@
 
 <p id="description">A video-sharing platform used to watch videos from all around the world.</p>
 <p>Snap-Shot</p>
-//<img src="https://drive.google.com/file/d/1C2yoKl6sVBxdwn0rDf8mBejOYVc6sDhr/view?usp=share_link"/>
+<img src="https://drive.google.com/file/d/1C2yoKl6sVBxdwn0rDf8mBejOYVc6sDhr/view?usp=share_link"/>
 
 <h2>🚀 Demo</h2>
 
